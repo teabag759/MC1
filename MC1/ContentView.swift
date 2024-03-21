@@ -8,19 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isActiveSurveyView = false
+    
     var body: some View {
-        VStack {
-            Text("뭐해볼까?")
+        ZStack {
+            Color.clear
+                .contentShape(Rectangle()) // 화면 전체에 대한 탭을 감지하기 위해
+                .onTapGesture {
+                    self.isActiveSurveyView = true
+                }
             
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
+            VStack {
+                Text("뭐해볼까?")
+            }
         }
-        .padding()
+        .fullScreenCover(isPresented: $isActiveSurveyView) {
+            SurveyView()
+        }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
