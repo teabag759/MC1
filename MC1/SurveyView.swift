@@ -12,7 +12,7 @@ struct Question {
 
 struct SurveyView: View {
     @State private var questions: [Question] = [
-        Question(text: "이 앱에 대한 만족도는 어떻습니까?"),
+        Question(text: "혼자 여행하는 것을 좋아하나요?"),
         Question(text: "사용하기 쉬웠습니까?"),
         Question(text: "디자인은 어떠셨습니까?")
     ]

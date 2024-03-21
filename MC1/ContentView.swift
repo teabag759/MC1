@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("혼자가는 여행을 \n 선호하시나요?")
+            Text("뭐해볼까?")
             
 //            Image(systemName: "globe")
 //                .imageScale(.large)
