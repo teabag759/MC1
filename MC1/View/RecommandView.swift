@@ -33,7 +33,7 @@ struct RecommendView: View {
             
             // CardGroupView (풀커버 페이지)
             .fullScreenCover(isPresented: $showCardGroupView) {
-                CardGroupView()
+                MainView()
             }
         }
     }

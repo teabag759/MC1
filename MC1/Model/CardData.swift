@@ -23,3 +23,12 @@ struct CardData: Identifiable, Hashable {
         hasher.combine(id)
     }
 }
+struct CardType {
+    var name: String
+    var score: Int
+    
+    init(name: String, score: Int) {
+        self.name = name
+        self.score = score
+    }
+}
