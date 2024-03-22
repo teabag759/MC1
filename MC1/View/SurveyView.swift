@@ -82,9 +82,9 @@ struct RatingView: View {
     }
 }
 
-struct SurveyView_Previews: PreviewProvider {
-    static var previews: some View {
-        SurveyView()
-    }
+#Preview {
+    
+    SurveyView()
+    
 }
 
