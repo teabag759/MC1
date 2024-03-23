@@ -15,61 +15,67 @@ struct CardView: View {
     ]
     
     var body: some View {
-        ZStack {
-            if let currentCard = currentCard {
-                VStack(spacing: 20) {
-                    Image(currentCard.imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    Text(currentCard.textContent)
-                        .font(.title)
-                        .padding()
-                    HStack {
-                        Button(action: {
-                            dislikeCards.append(currentCard)
-                            getNextCard()
-                        }) {
-                            Image(systemName: "heart.slash")
-                        }
-                        Button(action: {
-                            likeCards.append(currentCard)
-                            getNextCard()
-                        }) {
-                            Image(systemName: "heart")
-                        }
-                    }
-                }
-                .padding()
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(radius: 10)
-            } else if showToDoList {
-                ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)
-            } else {
-                Button(action: {
-                    currentCardIndex = 0
-                    currentCard = cardData[currentCardIndex!]
-                }) {
-                    Text("시작하기")
-                }
-            }
-            
-            // 추가된 버튼
-            if let currentIndex = currentCardIndex, currentIndex == cardData.count - 1 {
-                VStack {
-                    Spacer()
-                    Button(action: {
-                        showToDoList = true
-                    }) {
-                        Text("ToDoList로 넘어가기")
+        NavigationView{
+            ZStack {
+                if let currentCard = currentCard {
+                    VStack(spacing: 20) {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        Text(currentCard.textContent)
+                            .font(.title)
                             .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                        HStack {
+                            Button(action: {
+                                dislikeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart.slash")
+                            }
+                            Button(action: {
+                                likeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart")
+                            }
+                        }
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+                } else if showToDoList {
+                    ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)
+                } else {
+                    Button(action: {
+                        currentCardIndex = 0
+                        currentCard = cardData[currentCardIndex!]
+                    }) {
+                        Text("시작하기")
                     }
                 }
-                .padding()
-            }
+                
+                // 추가된 버튼
+                if let currentIndex = currentCardIndex, currentIndex == cardData.count - 1 {
+                    VStack {
+                        Spacer()
+                        Button(action: {
+                            
+                            showToDoList = true
+                        }) {
+                            Text("ToDoList로 넘어가기")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    }
+                    .padding()
+                }
+                
+            }.sheet(isPresented: $showToDoList) {
+                ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)
+                }
         }
     }
     
