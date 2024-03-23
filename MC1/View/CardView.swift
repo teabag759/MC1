@@ -1,85 +1,97 @@
 import SwiftUI
-struct CardTestView: View {
-    @State private var cardData: [CardData] = [
-        CardData(imageName: "image1", textContent: "텍스트1", type: CardType(name: "좋아요", score: 1)),
-        CardData(imageName: "image2", textContent: "텍스트2", type: CardType(name: "싫어요", score: -1)),
-        CardData(imageName: "image3", textContent: "텍스트3", type: CardType(name: "좋아요", score: 1)),
-    ]
+
+struct CardView: View {
     @State private var likeCards: [CardData] = []
     @State private var dislikeCards: [CardData] = []
-    @State private var currentCardIndex = 0
-    @State private var tmp = ""
+    @State private var currentCard: CardData?
+    @State private var showToDoList = false
+    @State private var currentCardIndex: Int?
+    let cardData = [
+        CardData(imageName: "image1", textContent: "여행지 1", type: CardType(name: "좋아요", score: 1)),
+        CardData(imageName: "image2", textContent: "여행지 2", type: CardType(name: "싫어요", score: -1)),
+        CardData(imageName: "image3", textContent: "여행지 3", type: CardType(name: "좋아요", score: 1)),
+        CardData(imageName: "image4", textContent: "여행지 4", type: CardType(name: "싫어요", score: -1)),
+        CardData(imageName: "image5", textContent: "여행지 5", type: CardType(name: "좋아요", score: 1)),
+    ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                // 카드 뷰
-                if currentCardIndex < cardData.count {
-                    CardView(cardData: $cardData[currentCardIndex], tmp: tmp) { type in
-                        if tmp == "like" {
-                            likeCards.append(cardData[currentCardIndex])
-                        } else if tmp == "dislike" {
-                            dislikeCards.append(cardData[currentCardIndex])
+        ZStack {
+            if let currentCard = currentCard {
+                VStack(spacing: 20) {
+                    Image(currentCard.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Text(currentCard.textContent)
+                        .font(.title)
+                        .padding()
+                    HStack {
+                        Button(action: {
+                            dislikeCards.append(currentCard)
+                            getNextCard()
+                        }) {
+                            Image(systemName: "heart.slash")
                         }
-                        currentCardIndex += 1
-                        tmp = ""
+                        Button(action: {
+                            likeCards.append(currentCard)
+                            getNextCard()
+                        }) {
+                            Image(systemName: "heart")
+                        }
                     }
-                } else {
-                    // 마지막 카드 - ToDoListView로 이동 버튼
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(radius: 10)
+            } else if showToDoList {
+                ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)
+            } else {
+                Button(action: {
+                    currentCardIndex = 0
+                    currentCard = cardData[currentCardIndex!]
+                }) {
+                    Text("시작하기")
+                }
+            }
+            
+            // 추가된 버튼
+            if let currentIndex = currentCardIndex, currentIndex == cardData.count - 1 {
+                VStack {
+                    Spacer()
                     Button(action: {
-                        // ToDoListView로 이동 코드
+                        showToDoList = true
                     }) {
-                        Text("To Do List 보기")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        Text("ToDoList로 넘어가기")
                             .padding()
                             .background(Color.blue)
+                            .foregroundColor(.white)
                             .cornerRadius(10)
                     }
                 }
-            }
-            .navigationBarTitle("카드 테스트")
-        }
-    }
-}
-
-struct CardView: View {
-    @Binding var cardData: CardData
-    @Binding var tmp:String
-    var onButtonTap: (CardType) -> Void
-    
-    var body: some View {
-        VStack {
-            // 여행 이미지
-            Image(cardData.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            
-            // 설명 텍스트
-            Text(cardData.textContent)
                 .padding()
-            
-            // 좋아요/싫어요 버튼
-            HStack {
-                Button(action: {
-                    
-                }) {
-                    Image(systemName: "heart")
-                        .foregroundColor(.red)
-                }
-                
-                Button(action: {
-                    onButtonTap(.dislike)
-                }) {
-                    Image(systemName: "heart.slash")
-                        .foregroundColor(.gray)
-                }
             }
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
+    }
+    
+    func getNextCard() {
+        if let currentIndex = currentCardIndex {
+            let remainingCards = cardData.enumerated().filter { index, _ in
+                !likeCards.contains { $0 == cardData[index] } &&
+                !dislikeCards.contains { $0 == cardData[index] }
+            }
+            if let nextCard = remainingCards.first {
+                currentCardIndex = nextCard.offset
+                currentCard = cardData[currentCardIndex!]
+            } else {
+                showToDoList = true
+            }
+        }
+    }
+}
+struct CardTestView: View {
+    var body: some View {
+        CardView()
     }
 }
 
+#Preview{CardTestView()}
