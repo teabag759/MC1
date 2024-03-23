@@ -94,10 +94,6 @@ struct CardView: View {
         }
     }
 }
-struct CardTestView: View {
-    var body: some View {
-        CardView()
-    }
-}
+
 
 #Preview{CardTestView()}

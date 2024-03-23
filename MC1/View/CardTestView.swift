@@ -5,4 +5,10 @@
 //  Created by ram on 3/23/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct CardTestView: View {
+    var body: some View {
+        CardView()
+    }
+}
