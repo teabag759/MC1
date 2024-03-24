@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct FirstAppView: View {
     @State private var isActiveSurveyView = false
     
     var body: some View {
@@ -30,6 +30,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        FirstAppView()
     }
 }
