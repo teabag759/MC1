@@ -80,7 +80,8 @@ struct CardView: View {
     }
     
     func getNextCard() {
-        if let currentIndex = currentCardIndex {
+//        if let currentIndex = currentCardIndex {
+        if currentCardIndex != nil {
             let remainingCards = cardData.enumerated().filter { index, _ in
                 !likeCards.contains { $0 == cardData[index] } &&
                 !dislikeCards.contains { $0 == cardData[index] }
