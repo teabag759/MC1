@@ -18,26 +18,32 @@ struct CardView: View {
     var body: some View {
         
         ZStack {
+            
             if let currentCard = currentCard {
-                VStack(spacing: 20) {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    Text(currentCard.textContent)
-                        .font(.title)
-                        .padding()
-                    HStack {
-                        Button(action: {
-                            dislikeCards.append(currentCard)
-                            getNextCard()
-                        }) {
-                            Image(systemName: "heart.slash")
-                        }
-                        Button(action: {
-                            likeCards.append(currentCard)
-                            getNextCard()
-                        }) {
-                            Image(systemName: "heart")
+                ZStack{
+//                    LinearGradient(gradient: Gradient(colors: [Color.white, Color.purple]),
+//                                             startPoint: .top, endPoint: .bottom)
+                    VStack(spacing: 20) {
+                        
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        Text(currentCard.textContent)
+                            .font(.title)
+                            .padding()
+                        HStack {
+                            Button(action: {
+                                dislikeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart.slash")
+                            }
+                            Button(action: {
+                                likeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart")
+                            }
                         }
                     }
                 }
@@ -91,4 +97,6 @@ struct CardView: View {
 }
 
 
-
+#Preview {
+    CardView()
+}
