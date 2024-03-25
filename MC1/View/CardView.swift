@@ -12,6 +12,7 @@ struct CardView: View {
         CardData(imageName: "image3", textContent: "여행지 3", type: CardType(name: "좋아요", score: 1)),
         CardData(imageName: "image4", textContent: "여행지 4", type: CardType(name: "싫어요", score: -1)),
         CardData(imageName: "image5", textContent: "여행지 5", type: CardType(name: "좋아요", score: 1)),
+        CardData(imageName: "image5", textContent: "여행지에게 만난 사람에게 음식점 추천받아서 방문하기", type: CardType(name: "좋아요", score: 1)),
     ]
     
     var body: some View {
@@ -59,23 +60,27 @@ struct CardView: View {
                 if let currentIndex = currentCardIndex, currentIndex == cardData.count - 1 {
                     VStack {
                         Spacer()
-                        Button(action: {
-                            
-                            showToDoList = true
-                        }) {
+                        NavigationLink(destination: ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)) {
                             Text("ToDoList로 넘어가기")
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
                         }
+//                        Button(action: {
+//                            
+//                            showToDoList = true
+//                        }) {
+//                            Text("ToDoList로 넘어가기")
+//                                .padding()
+//                                .background(Color.blue)
+//                                .foregroundColor(.white)
+//                                .cornerRadius(10)
+//                        }
                     }
                     .padding()
                 }
                 
-            }.sheet(isPresented: $showToDoList) {
-                ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)
-                }
+            }
+//            .sheet(isPresented: $showToDoList) {
+//                ToDoListView(likeDatas: $likeCards, dislikeDatas: $dislikeCards)
+//                }
         }
     }
     

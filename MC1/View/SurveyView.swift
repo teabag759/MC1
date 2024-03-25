@@ -15,8 +15,11 @@ struct Question {
 struct SurveyView: View {
     @State private var questions: [Question] = [
         Question(text: "혼자 여행하는 것을 좋아하나요?"),
-        Question(text: "???"),
-        Question(text: "뭐하고싶음?")
+        Question(text: "여행 계획을 짜기 위해 어플을 사용한 적이 있나요?"),
+        Question(text: "새로운 음식에 대해 두려움이 얼마나 있습니까?\n없다:1점 매우많다:5점"),
+        Question(text: "현지 문화와 역사에 대한 관심이 얼마나 있습니까?\n없다:1점 매우많다:5점"),
+        Question(text: "여행 전 여행자 보험을 매번 가입하나요?"),
+        Question(text: "모험적인 활동을 통해 새로운 경험을 찾는 것을 얼마나 선호하시나요?\n없다:1점 매우많다:5점"),
     ]
     @State private var currentQuestionIndex = 0
     @State private var isSurveyCompleted = false
