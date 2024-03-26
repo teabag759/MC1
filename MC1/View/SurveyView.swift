@@ -13,10 +13,7 @@ struct Question {
 }
 
 
-
-
-
-struct SurveyView3: View {
+struct SurveyView: View {
     @State private var questions: [Question] = [
         Question(text: "혼자 여행하는 것을 좋아하나요?"),
         Question(text: "여행 계획을 짜기 위해 어플을 사용한 적이 있나요?"),
@@ -29,6 +26,53 @@ struct SurveyView3: View {
     @State private var isSurveyCompleted = false
     
     var body: some View {
+        VStack{
+//            Rectangle()
+//              .foregroundColor(.clear)
+//              .frame(width: 340, height: 244)
+//              .background(
+//                Image("type_female")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    
+//                )
+              
+            HStack{
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                  .background(Color(red: 0.12, green: 0.14, blue: 0.16))
+                  .cornerRadius(100)
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                  .cornerRadius(100)
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                  .cornerRadius(100)
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                  .cornerRadius(100)
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                  .cornerRadius(100)
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                  .cornerRadius(100)
+                
+            }
+            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+        }
+        .padding(.horizontal,20)
         ZStack{
             
             if isSurveyCompleted {
