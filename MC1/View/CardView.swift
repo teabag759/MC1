@@ -26,31 +26,63 @@ struct CardView: View {
                     Text(currentCard.textContent)
                         .font(.title)
                         .padding()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                           
-                            dislikeCards.append(currentCard)
-                            getNextCard()
-                        }) {
-                            Image(systemName: "heart.slash")
+                    if currentCardIndex! >= 3{
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                
+                                dislikeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart.slash")
+                            }.onTapGesture {
+                                showToDoList = true
+                            }
+                            Spacer()
+                            
+                            Button(action: {
+                                todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
+                                likeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart")
+                            }
+                            .onTapGesture {
+                                showToDoList = true
+                            }
+                            Spacer()
                         }
-                        Spacer()
-                        
-                        Button(action: {
-                            todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
-                            likeCards.append(currentCard)
-                            getNextCard()
-                        }) {
-                            Image(systemName: "heart")
+                    }
+                    else{
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                
+                                dislikeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart.slash")
+                            }
+                            Spacer()
+                            
+                            Button(action: {
+                                todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
+                                likeCards.append(currentCard)
+                                getNextCard()
+                            }) {
+                                Image(systemName: "heart")
+                            }
+                            Spacer()
                         }
-                        Spacer()
                     }
                 }
                 .padding()
                 .background(Color.white)
                 .cornerRadius(20)
                 .shadow(radius: 10)
+                .padding(.horizontal,15)
             } else if showToDoList {
                 ToDoListView(todolist: $todolist)
             }
@@ -59,6 +91,11 @@ struct CardView: View {
             currentCardIndex = 0
             currentCard = cardData[currentCardIndex!]
         }
+        .background(
+            NavigationLink(destination: ToDoListView(todolist: $todolist), isActive: $showToDoList) {
+                EmptyView()
+            }
+        )
     }
     
     func getNextCard() {

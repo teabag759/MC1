@@ -35,17 +35,17 @@ struct ToDoListView: View {
                 }
                 
                 // 추가: 완료된 할일을 표시할 리스트
-                if !completedData.isEmpty {
-                    List {
-                        ForEach(completedData) { item in
-                            Text(item.textContent)
-                        }
-                    }
-                }
+//                if !completedData.isEmpty {
+//                    List {
+//                        ForEach(completedData) { item in
+//                            Text(item.textContent)
+//                        }
+//                    }
+//                }
                 
                 Spacer()
             }
-            .navigationBarTitle("ToDo List")
+            .navigationBarTitle("Travel to do list")
         }
     }
     
