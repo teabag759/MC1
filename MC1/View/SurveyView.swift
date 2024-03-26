@@ -84,9 +84,25 @@ struct SurveyView: View {
                                 if currentQuestionIndex < questions.count - 1 {
                                     Button("다음", action: moveToNextQuestion)
                                 } else {
-                                    Button("완료", action: finishSurvey)
+                                    Button("완료") {
+                                                // Optional action to perform before navigation
+                                                
+                                                // Navigate to RecommendView
+                                                withAnimation {
+                                                    self.isSurveyCompleted = true
+                                                }
+                                        
+                                            
+                                    }
+                                    .background(
+                                                NavigationLink(destination: RecommendView(), isActive: $isSurveyCompleted) {
+                                                    EmptyView()
+                                                }
+                                            )
                                 }
+                                   
                             }
+                            
                         }
                         .padding()
                     }
