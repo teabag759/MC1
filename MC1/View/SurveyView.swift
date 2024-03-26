@@ -29,16 +29,7 @@ struct SurveyView: View {
         VStack{
             VStack{
                 VStack{
-                    //            Rectangle()
-                    //              .foregroundColor(.clear)
-                    //              .frame(width: 340, height: 244)
-                    //              .background(
-                    //                Image("type_female")
-                    //                    .resizable()
-                    //                    .aspectRatio(contentMode: .fit)
-                    //
-                    //                )
-                    
+             
                     HStack{
                         Rectangle()
                             .foregroundColor(.clear)
