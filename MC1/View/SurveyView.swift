@@ -17,10 +17,9 @@ struct SurveyView: View {
     @State private var questions: [Question] = [
         Question(text: "혼자 여행하는 것을 좋아하나요?"),
         Question(text: "여행 계획을 짜기 위해 어플을 사용한 적이 있나요?"),
-        Question(text: "새로운 음식에 대해 두려움이 얼마나 있습니까?\n없다:1점 매우많다:5점"),
-        Question(text: "현지 문화와 역사에 대한 관심이 얼마나 있습니까?\n없다:1점 매우많다:5점"),
-        Question(text: "여행 전 여행자 보험을 매번 가입하나요?"),
-        Question(text: "모험적인 활동을 통해 새로운 경험을 찾는 것을 얼마나 선호하시나요?\n없다:1점 매우많다:5점"),
+        Question(text: "새로운 음식에 대해 두려움이 얼마나 있습니까?"),
+        Question(text: "현지 문화와 역사에 대한 관심이 얼마나 있습니까?"),
+        Question(text: "모험적인 활동을 통해 새로운 경험을 찾는 것을 얼마나 선호하시나요?"),
     ]
     @State private var currentQuestionIndex = 0
     @State private var isSurveyCompleted = false
@@ -29,44 +28,22 @@ struct SurveyView: View {
         VStack{
             VStack{
                 VStack{
-             
-                    HStack{
+                    Spacer()
+                        .frame(height:30)
+                    HStack {
+                      ForEach(0..<5) { index in
                         Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                            .background(Color(red: 0.12, green: 0.14, blue: 0.16))
-                            .cornerRadius(100)
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                            .cornerRadius(100)
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                            .cornerRadius(100)
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                            .cornerRadius(100)
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                            .cornerRadius(100)
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                            .cornerRadius(100)
-                        
+                          .foregroundColor(.clear)
+                          .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                          .background(Color(red: 0.12, green: 0.14, blue: 0.16)
+                                      .opacity(index == currentQuestionIndex  ? 1.0 : 0.20))
+                          .cornerRadius(100)
+                      }
                     }
                     .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
                 }
                 .padding(.horizontal,20)
-                
+                Spacer()
                 ZStack{
                     
                     if isSurveyCompleted {
@@ -109,7 +86,7 @@ struct SurveyView: View {
                 }
                 
             }
-            .frame(maxWidth: .infinity, minHeight: 254, maxHeight: 254)
+            .frame(maxWidth: .infinity, minHeight: 254, maxHeight: 400)
             .background(Color(red: 0.99, green: 0.97, blue: 0.91))
             .cornerRadius(24)
         }
@@ -142,20 +119,22 @@ struct RatingView: View {
     
     var body: some View {
         HStack {
+            Spacer()
             ForEach(1..<6) { number in
                 Button(action: {
                     self.rating = number
                 }) {
                     Text("\(number)")
                         .foregroundColor(number == self.rating ? .blue : .gray)
-                        .font(.system(size: 20))
+                        .font(.system(size: 25))
                         .padding(5)
                         .overlay(
                             Circle()
-                                .stroke(number == self.rating ? Color.blue : Color.gray, lineWidth: 2)
+                                .stroke(number == self.rating ? Color.blue : Color.gray, lineWidth: 1)
                         )
-                }
+                }.padding(.horizontal,10)
             }
+            Spacer()
         }
     }
 }
