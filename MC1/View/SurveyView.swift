@@ -12,192 +12,212 @@ struct Question {
     }
 }
 
-struct SurveyView2: View {
+
+struct SurveyView: View {
   var body: some View {
-      ZStack() {
-        VStack(alignment: .leading, spacing: -24) {
-          VStack(spacing: 0) {
-            HStack(spacing: 8) {
-              HStack(spacing: 8) {
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-              }
-              .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-              ZStack() {
-                ZStack() {
-
-                }
-                .frame(width: 24, height: 24)
-                .offset(x: 0, y: 0)
-              }
-              .frame(width: 32, height: 32)
-            }
-            .padding(EdgeInsets(top: 8, leading: 20, bottom: 6, trailing: 12))
-            .frame(maxWidth: .infinity, minHeight: 46, maxHeight: 46)
-            .cornerRadius(24)
-            VStack(alignment: .leading, spacing: 20) {
-              VStack(spacing: 4) {
-                Text("What are your feeling regarding our new website?")
-                  .font(Font.custom("Inter", size: 16).weight(.semibold))
-                  .lineSpacing(20)
-                  .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
-              }
-              .frame(maxWidth: .infinity, minHeight: 40, maxHeight: 40)
-              VStack(alignment: .leading, spacing: 8) {
-                HStack(alignment: .top, spacing: 8) {
-                  HStack(alignment: .top, spacing: 10) {
-                    ZStack() {
-
-                    }
-                    .frame(width: 40, height: 40)
-                  }
-                  .padding(4)
-                  .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
-                  .cornerRadius(12)
-                  HStack(alignment: .top, spacing: 10) {
-                    ZStack() {
-
-                    }
-                    .frame(width: 40, height: 40)
-                  }
-                  .padding(4)
-                  .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
-                  .cornerRadius(12)
-                  HStack(alignment: .top, spacing: 10) {
-                    ZStack() {
-
-                    }
-                    .frame(width: 40, height: 40)
-                  }
-                  .padding(4)
-                  .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
-                  .cornerRadius(12)
-                  HStack(alignment: .top, spacing: 10) {
-                    ZStack() {
-
-                    }
-                    .frame(width: 40, height: 40)
-                  }
-                  .padding(4)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16))
-                  .cornerRadius(12)
-                  HStack(alignment: .top, spacing: 10) {
-                    ZStack() {
-
-                    }
-                    .frame(width: 40, height: 40)
-                  }
-                  .padding(4)
-                  .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
-                  .cornerRadius(12)
-                }
-                HStack(alignment: .top, spacing: 0) {
-                  Text("Text input")
-                    .font(Font.custom("Inter", size: 12).weight(.medium))
-                    .lineSpacing(16)
-                    .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
-                  Text("Text input")
-                    .font(Font.custom("Inter", size: 12).weight(.medium))
-                    .lineSpacing(16)
-                    .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
-                  Text("Text input")
-                    .font(Font.custom("Inter", size: 12).weight(.medium))
-                    .lineSpacing(16)
-                    .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
-                }
-                .frame(maxWidth: .infinity)
-              }
-            }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
-            .frame(maxWidth: .infinity, minHeight: 156, maxHeight: 156)
-            HStack(spacing: 20) {
-              ZStack() {
-
-              }
-              .frame(width: 40, height: 20)
-              .background(.white)
-              .cornerRadius(100)
-              .overlay(
-                RoundedRectangle(cornerRadius: 100)
-                  .inset(by: 1)
-                  .stroke(Color(red: 0.12, green: 0.14, blue: 0.16), lineWidth: 1)
-              )
-              Rectangle()
-                .foregroundColor(.clear)
-                .frame(maxWidth: .infinity, minHeight: 4, maxHeight: 4)
-              HStack(spacing: 8) {
-                HStack(spacing: 0) {
-                  HStack(spacing: 0) {
-                    Text("Previous")
-                      .font(Font.custom("Inter", size: 15).weight(.medium))
-                      .lineSpacing(20)
-                      .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
-                  }
-                  .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-                }
-                .padding(10)
-                .cornerRadius(100000)
-                HStack(spacing: 0) {
-                  HStack(spacing: 0) {
-                    Text("Next")
-                      .font(Font.custom("Inter", size: 15).weight(.medium))
-                      .lineSpacing(20)
-                      .foregroundColor(.white)
-                  }
-                  .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-                }
-                .padding(10)
-                .background(Color(red: 0.12, green: 0.14, blue: 0.16))
-                .cornerRadius(100000)
-              }
-            }
-            .padding(20)
-            .frame(maxWidth: .infinity)
-          }
-          .frame(maxWidth: .infinity, minHeight: 282, maxHeight: 282)
+    VStack(spacing: 0) {
+      VStack(alignment: .leading, spacing: -24) {
+        Rectangle()
+          .foregroundColor(.clear)
+          .frame(width: 340, height: 244)
           .background(
-            LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 0.61, blue: 0.30), Color(red: 1, green: 0.36, blue: 0.52)]), startPoint: .leading, endPoint: .trailing)
+            AsyncImage(url: URL(string: "https://via.placeholder.com/340x244"))
           )
           .cornerRadius(24)
+        VStack(spacing: 0) {
+          HStack(spacing: 8) {
+            HStack(spacing: 8) {
+              Rectangle()
+                .foregroundColor(.clear)
+                .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                .background(Color(red: 0.12, green: 0.14, blue: 0.16))
+                .cornerRadius(100)
+              Rectangle()
+                .foregroundColor(.clear)
+                .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                .cornerRadius(100)
+              Rectangle()
+                .foregroundColor(.clear)
+                .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                .cornerRadius(100)
+              Rectangle()
+                .foregroundColor(.clear)
+                .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                .cornerRadius(100)
+              Rectangle()
+                .foregroundColor(.clear)
+                .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                .cornerRadius(100)
+            }
+            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+            HStack(spacing: 0) {
+              HStack(spacing: 0) {
+
+              }
+              .padding(6)
+              .frame(width: 24, height: 24)
+            }
+            .padding(4)
+            .frame(width: 32, height: 32)
+          }
+          .padding(EdgeInsets(top: 8, leading: 20, bottom: 6, trailing: 12))
+          .frame(maxWidth: .infinity, minHeight: 46, maxHeight: 46)
+          .cornerRadius(24)
+          VStack(alignment: .leading, spacing: 20) {
+            VStack(spacing: 4) {
+              Text("How much would you rate this particular page?")
+                .font(Font.custom("Inter", size: 16).weight(.semibold))
+                .lineSpacing(20)
+                .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+            }
+            .frame(maxWidth: .infinity, minHeight: 40, maxHeight: 40)
+            VStack(alignment: .leading, spacing: 8) {
+              HStack(alignment: .top, spacing: 8) {
+                HStack(alignment: .top, spacing: 10) {
+                  ZStack() {
+                    Text("1")
+                      .font(Font.custom("Inter", size: 14).weight(.semibold))
+                      .lineSpacing(20)
+                      .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+                      .offset(x: 0, y: -0)
+                  }
+                  .frame(width: 40, height: 40)
+                  .cornerRadius(10)
+                }
+                .padding(4)
+                .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
+                .cornerRadius(12)
+                HStack(alignment: .top, spacing: 10) {
+                  ZStack() {
+                    Text("2")
+                      .font(Font.custom("Inter", size: 14).weight(.semibold))
+                      .lineSpacing(20)
+                      .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+                      .offset(x: 0, y: -0)
+                  }
+                  .frame(width: 40, height: 40)
+                  .cornerRadius(10)
+                }
+                .padding(4)
+                .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
+                .cornerRadius(12)
+                HStack(alignment: .top, spacing: 10) {
+                  ZStack() {
+                    Text("3")
+                      .font(Font.custom("Inter", size: 14).weight(.semibold))
+                      .lineSpacing(20)
+                      .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+                      .offset(x: 0, y: -0)
+                  }
+                  .frame(width: 40, height: 40)
+                  .cornerRadius(10)
+                }
+                .padding(4)
+                .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
+                .cornerRadius(12)
+                HStack(alignment: .top, spacing: 10) {
+                  ZStack() {
+                    Text("4")
+                      .font(Font.custom("Inter", size: 14).weight(.semibold))
+                      .lineSpacing(20)
+                      .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+                      .offset(x: 0, y: -0)
+                  }
+                  .frame(width: 40, height: 40)
+                  .cornerRadius(10)
+                }
+                .padding(4)
+                .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
+                .cornerRadius(12)
+                HStack(alignment: .top, spacing: 10) {
+                  ZStack() {
+                    Text("5")
+                      .font(Font.custom("Inter", size: 14).weight(.semibold))
+                      .lineSpacing(20)
+                      .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+                      .offset(x: 0, y: -0)
+                  }
+                  .frame(width: 40, height: 40)
+                  .cornerRadius(10)
+                }
+                .padding(4)
+                .background(Color(red: 0.18, green: 0.21, blue: 0.24).opacity(0.10))
+                .cornerRadius(12)
+              }
+            }
+            .frame(maxWidth: .infinity, minHeight: 48, maxHeight: 48)
+          }
+          .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
+          .frame(maxWidth: .infinity, minHeight: 128, maxHeight: 128)
+          HStack(spacing: 20) {
+            HStack(spacing: 0) {
+
+            }
+            .padding(
+              EdgeInsets(top: 4.67, leading: 6, bottom: 5.33, trailing: 7.33)
+            )
+            .frame(width: 40, height: 20)
+            .background(.white)
+            .cornerRadius(100)
+            .overlay(
+              RoundedRectangle(cornerRadius: 100)
+                .inset(by: 1)
+                .stroke(Color(red: 0.12, green: 0.14, blue: 0.16), lineWidth: 1)
+            )
+            Rectangle()
+              .foregroundColor(.clear)
+              .frame(maxWidth: .infinity, minHeight: 4, maxHeight: 4)
+            HStack(spacing: 8) {
+              HStack(spacing: 0) {
+                HStack(spacing: 0) {
+                  Text("Previous")
+                    .font(Font.custom("Inter", size: 15).weight(.medium))
+                    .lineSpacing(20)
+                    .foregroundColor(Color(red: 0.12, green: 0.14, blue: 0.16))
+                }
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+              }
+              .padding(10)
+              .cornerRadius(100000)
+              HStack(spacing: 0) {
+                HStack(spacing: 0) {
+                  Text("Next")
+                    .font(Font.custom("Inter", size: 15).weight(.medium))
+                    .lineSpacing(20)
+                    .foregroundColor(.white)
+                }
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+              }
+              .padding(10)
+              .background(Color(red: 0.12, green: 0.14, blue: 0.16))
+              .cornerRadius(100000)
+            }
+          }
+          .padding(20)
+          .frame(maxWidth: .infinity)
         }
-        .frame(height: 282)
-        .offset(x: 0, y: -2.50)
-        .shadow(
-          color: Color(red: 0.11, green: 0.11, blue: 0.13, opacity: 0.15), radius: 25, y: 20
-        )
+        .frame(maxWidth: .infinity, minHeight: 254, maxHeight: 254)
+        .background(Color(red: 0.99, green: 0.97, blue: 0.91))
+        .cornerRadius(24)
       }
-      .frame(width: 460, height: 407)
-      .background(
-        LinearGradient(gradient: Gradient(colors: [Color(red: 1, green: 0.61, blue: 0.30), Color(red: 1, green: 0.36, blue: 0.52)]), startPoint: .leading, endPoint: .trailing)
+      .frame(maxWidth: .infinity, minHeight: 474, maxHeight: 474)
+      .shadow(
+        color: Color(red: 0.11, green: 0.11, blue: 0.13, opacity: 0.15), radius: 25, y: 20
       )
-      .cornerRadius(18)
+    }
+    .padding(60)
+    .frame(width: 460, height: 594)
+    .background(Color(red: 0.99, green: 0.97, blue: 0.91).opacity(0.70))
+    .cornerRadius(18);
   }
 }
 
-struct SurveyView: View {
+
+struct SurveyView3: View {
     @State private var questions: [Question] = [
         Question(text: "혼자 여행하는 것을 좋아하나요?"),
         Question(text: "여행 계획을 짜기 위해 어플을 사용한 적이 있나요?"),
