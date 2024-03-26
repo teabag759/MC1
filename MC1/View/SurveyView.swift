@@ -27,77 +27,94 @@ struct SurveyView: View {
     
     var body: some View {
         VStack{
-//            Rectangle()
-//              .foregroundColor(.clear)
-//              .frame(width: 340, height: 244)
-//              .background(
-//                Image("type_female")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    
-//                )
-              
-            HStack{
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                  .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
-                  .cornerRadius(100)
-                
-            }
-            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-        }
-        .padding(.horizontal,20)
-        ZStack{
-            
-            if isSurveyCompleted {
-                RecommendView()
-            } else {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("질문 \(currentQuestionIndex + 1): \(questions[currentQuestionIndex].text)")
-                    RatingView(rating: $questions[currentQuestionIndex].rating)
+            VStack{
+                VStack{
+                    //            Rectangle()
+                    //              .foregroundColor(.clear)
+                    //              .frame(width: 340, height: 244)
+                    //              .background(
+                    //                Image("type_female")
+                    //                    .resizable()
+                    //                    .aspectRatio(contentMode: .fit)
+                    //
+                    //                )
                     
-                    HStack {
-                        if currentQuestionIndex > 0 {
-                            Button("이전", action: moveToPreviousQuestion)
+                    HStack{
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                            .background(Color(red: 0.12, green: 0.14, blue: 0.16))
+                            .cornerRadius(100)
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                            .cornerRadius(100)
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                            .cornerRadius(100)
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                            .cornerRadius(100)
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                            .cornerRadius(100)
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                            .background(Color(red: 0.12, green: 0.14, blue: 0.16).opacity(0.20))
+                            .cornerRadius(100)
+                        
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                }
+                .padding(.horizontal,20)
+                
+                ZStack{
+                    
+                    if isSurveyCompleted {
+                        RecommendView()
+                    } else {
+                        VStack(alignment: .leading, spacing: 20) {
+                            Text("질문 \(currentQuestionIndex + 1): \(questions[currentQuestionIndex].text)")
+                            RatingView(rating: $questions[currentQuestionIndex].rating)
+                            
+                            HStack {
+                                if currentQuestionIndex > 0 {
+                                    Button("이전", action: moveToPreviousQuestion)
+                                }
+                                Spacer()
+                                if currentQuestionIndex < questions.count - 1 {
+                                    Button("다음", action: moveToNextQuestion)
+                                } else {
+                                    Button("완료", action: finishSurvey)
+                                }
+                            }
                         }
-                        Spacer()
-                        if currentQuestionIndex < questions.count - 1 {
-                            Button("다음", action: moveToNextQuestion)
-                        } else {
-                            Button("완료", action: finishSurvey)
-                        }
+                        .padding()
                     }
                 }
-                .padding()
+                
             }
+            .frame(maxWidth: .infinity, minHeight: 254, maxHeight: 254)
+            .background(Color(red: 0.99, green: 0.97, blue: 0.91))
+            .cornerRadius(24)
         }
+        .frame(maxWidth: .infinity, minHeight: 474, maxHeight: 474)
+        .shadow(
+            color: Color(red: 0.11, green: 0.11, blue: 0.13, opacity: 0.15), radius: 25, y: 20
+        )
+        .padding(.horizontal,26)
+        
     }
+    
+    
     
     func moveToPreviousQuestion() {
         currentQuestionIndex -= 1
