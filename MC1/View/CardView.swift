@@ -36,6 +36,7 @@ struct CardView: View {
                             Image(systemName: "heart.slash")
                         }
                         Spacer()
+                        
                         Button(action: {
                             todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
                             likeCards.append(currentCard)

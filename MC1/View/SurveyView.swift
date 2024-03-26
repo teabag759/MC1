@@ -31,14 +31,15 @@ struct SurveyView: View {
                     Spacer()
                         .frame(height:30)
                     HStack {
-                      ForEach(0..<5) { index in
-                        Rectangle()
-                          .foregroundColor(.clear)
-                          .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
-                          .background(Color(red: 0.12, green: 0.14, blue: 0.16)
-                                      .opacity(index == currentQuestionIndex  ? 1.0 : 0.20))
-                          .cornerRadius(100)
-                      }
+                    
+                        ForEach(0..<5) { index in
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
+                                .background(Color(red: 0.12, green: 0.14, blue: 0.16)
+                                    .opacity(index == currentQuestionIndex  ? 1.0 : 0.20))
+                                .cornerRadius(100)
+                        }
                     }
                     .frame(maxWidth: .infinity, minHeight: 3, maxHeight: 3)
                 }
@@ -49,10 +50,30 @@ struct SurveyView: View {
                     if isSurveyCompleted {
                         RecommendView()
                     } else {
+                        
                         VStack(alignment: .leading, spacing: 20) {
-                            Text("질문 \(currentQuestionIndex + 1): \(questions[currentQuestionIndex].text)")
-                            RatingView(rating: $questions[currentQuestionIndex].rating)
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Text( "\(questions[currentQuestionIndex].text)")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                    .multilineTextAlignment(.center)
+                                    .lineLimit(nil)
+                                Spacer()
+                            }
                             
+                            Spacer()
+                            RatingView(rating: $questions[currentQuestionIndex].rating)
+                            HStack{
+                                Text("         비동의")
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                                Spacer()
+                                Text("동의         ")
+                                    .font(.footnote)
+                                    .foregroundStyle(.gray)
+                            }
                             HStack {
                                 if currentQuestionIndex > 0 {
                                     Button("이전", action: moveToPreviousQuestion)
@@ -62,22 +83,22 @@ struct SurveyView: View {
                                     Button("다음", action: moveToNextQuestion)
                                 } else {
                                     Button("완료") {
-                                                // Optional action to perform before navigation
-                                                
-                                                // Navigate to RecommendView
-                                                withAnimation {
-                                                    self.isSurveyCompleted = true
-                                                }
+                                        // Optional action to perform before navigation
                                         
-                                            
+                                        // Navigate to RecommendView
+                                        withAnimation {
+                                            self.isSurveyCompleted = true
+                                        }
+                                        
+                                        
                                     }
                                     .background(
-                                                NavigationLink(destination: RecommendView(), isActive: $isSurveyCompleted) {
-                                                    EmptyView()
-                                                }
-                                            )
+                                        NavigationLink(destination: RecommendView(), isActive: $isSurveyCompleted) {
+                                            EmptyView()
+                                        }
+                                    )
                                 }
-                                   
+                                
                             }
                             
                         }
