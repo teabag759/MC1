@@ -17,56 +17,28 @@ struct CardView: View {
     ]
     
     var body: some View {
-        
         ZStack {
-            
             if let currentCard = currentCard {
-                ZStack{
-//                    LinearGradient(gradient: Gradient(colors: [Color.white, Color.purple]),
-//                                             startPoint: .top, endPoint: .bottom)
-                    VStack(spacing: 20) {
-                        
-                        Image(systemName: "photo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        Text(currentCard.textContent)
-                            .font(.title)
-                            .padding()
-                        HStack {
-                            if let currentIndex = currentCardIndex, currentIndex == cardData.count - 1 {
-                                NavigationLink(destination:ToDoListView(todolist: $todolist)){
-                                    Button(action: {
-                                        dislikeCards.append(currentCard)
-                                        getNextCard()
-                                    }) {
-                                        Image(systemName: "heart.slash")
-                                    }
-                                }
-                                NavigationLink(destination:ToDoListView(todolist: $todolist)){
-                                    Button(action: {
-                                        todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
-                                        likeCards.append(currentCard)
-                                        getNextCard()
-                                    }) {
-                                        Image(systemName: "heart")
-                                    }
-                                }
-                            }
-                            else{
-                                Button(action: {
-                                    dislikeCards.append(currentCard)
-                                    getNextCard()
-                                }) {
-                                    Image(systemName: "heart.slash")
-                                }
-                                Button(action: {
-                                    todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
-                                    likeCards.append(currentCard)
-                                    getNextCard()
-                                }) {
-                                    Image(systemName: "heart")
-                                }
-                            }
+                VStack(spacing: 20) {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Text(currentCard.textContent)
+                        .font(.title)
+                        .padding()
+                    HStack {
+                        Button(action: {
+                            dislikeCards.append(currentCard)
+                            getNextCard()
+                        }) {
+                            Image(systemName: "heart.slash")
+                        }
+                        Button(action: {
+                            todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
+                            likeCards.append(currentCard)
+                            getNextCard()
+                        }) {
+                            Image(systemName: "heart")
                         }
                     }
                 }
@@ -76,34 +48,15 @@ struct CardView: View {
                 .shadow(radius: 10)
             } else if showToDoList {
                 ToDoListView(todolist: $todolist)
-            } else {
-                Button(action: {
-                    currentCardIndex = 0
-                    currentCard = cardData[currentCardIndex!]
-                }) {
-                    Text("시작하기")
-                }
             }
-            
-            // 추가된 버튼
-            if let currentIndex = currentCardIndex, currentIndex == cardData.count - 1 {
-                VStack {
-                    Spacer()
-                    NavigationLink(destination: ToDoListView(todolist: $todolist)) {
-                        Text("ToDoList로 넘어가기")
-                    }
-                    
-                }
-                .padding()
-            }
-            
         }
-        
-        
+        .onAppear {
+            currentCardIndex = 0
+            currentCard = cardData[currentCardIndex!]
+        }
     }
     
     func getNextCard() {
-        //        if let currentIndex = currentCardIndex {
         if currentCardIndex != nil {
             let remainingCards = cardData.enumerated().filter { index, _ in
                 !likeCards.contains { $0 == cardData[index] } &&

@@ -19,10 +19,9 @@ struct FirstAppView: View {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 414, height: 896.34)
-                    .background(
-                        AsyncImage(url: URL(string: "https://github.com/piriram/iOSBasic/assets/62399318/4fc94468-d90c-4037-bad4-fb4a2a762263"))
-                    )
-                
+                   
+                Image("ocean")
+                    .resizable()
                 
                 VStack{
                     Spacer()
@@ -38,7 +37,7 @@ struct FirstAppView: View {
                             .fontWeight(.bold)
                             .padding(EdgeInsets(top: CGFloat(vet), leading: CGFloat(hor), bottom: CGFloat(vet), trailing: CGFloat(hor)))
                             .foregroundColor(.white)
-                            .background(Color.green)
+                            .background(Color.blue)
                             .cornerRadius(20)
                         
                     }
