@@ -8,31 +8,34 @@ struct CardView: View {
     @State private var currentCardIndex: Int?
     @State var todolist:[ToDoData] = []
     let cardData = [
-        CardData(imageName: "image1", textContent: "여행지 1", type: CardType(name: "좋아요", score: 1)),
-        CardData(imageName: "image2", textContent: "여행지 2", type: CardType(name: "싫어요", score: -1)),
-        CardData(imageName: "image3", textContent: "여행지 3", type: CardType(name: "좋아요", score: 1)),
-        CardData(imageName: "image4", textContent: "여행지 4", type: CardType(name: "싫어요", score: -1)),
-        CardData(imageName: "image5", textContent: "여행지 5", type: CardType(name: "좋아요", score: 1)),
-        CardData(imageName: "image5", textContent: "여행지에게 만난 사람에게 음식점 추천받아서 방문하기", type: CardType(name: "좋아요", score: 1)),
+        CardData(imageName: "cooking", textContent: "현지에서 쿠킹 클래스 듣기", type: CardType(name: "좋아요", score: 1)),
+        CardData(imageName: "vol", textContent: "아이들에게 재능 기부하기", type: CardType(name: "싫어요", score: -1)),
+        CardData(imageName: "cafe", textContent: "노란색 식탁보를 가진 카페 들어가기", type: CardType(name: "좋아요", score: 1)),
+        CardData(imageName: "food", textContent: "여행지에서 처음 만난 사람에게 맛집을 추천받아 가기", type: CardType(name: "싫어요", score: -1)),
+      
     ]
     
     var body: some View {
         ZStack {
             if let currentCard = currentCard {
                 VStack(spacing: 20) {
-                    Image(systemName: "photo")
+                    Image(currentCard.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        
                     Text(currentCard.textContent)
                         .font(.title)
                         .padding()
                     HStack {
+                        Spacer()
                         Button(action: {
+                           
                             dislikeCards.append(currentCard)
                             getNextCard()
                         }) {
                             Image(systemName: "heart.slash")
                         }
+                        Spacer()
                         Button(action: {
                             todolist.append(ToDoData(textContent: currentCard.textContent, isCompleted: false))
                             likeCards.append(currentCard)
@@ -40,6 +43,7 @@ struct CardView: View {
                         }) {
                             Image(systemName: "heart")
                         }
+                        Spacer()
                     }
                 }
                 .padding()
