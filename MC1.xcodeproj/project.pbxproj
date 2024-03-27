@@ -12,13 +12,10 @@
 		215EAF432BABD8F100ED63D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215EAF422BABD8F100ED63D4 /* Preview Assets.xcassets */; };
 		21D7A2692BAD16E200EEE2A3 /* RecommandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2612BAD16E200EEE2A3 /* RecommandView.swift */; };
 		21D7A26A2BAD16E200EEE2A3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2622BAD16E200EEE2A3 /* CardView.swift */; };
-		21D7A26B2BAD16E200EEE2A3 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2632BAD16E200EEE2A3 /* TypeView.swift */; };
 		21D7A26D2BAD16E200EEE2A3 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2652BAD16E200EEE2A3 /* SurveyView.swift */; };
-		21D7A26E2BAD16E200EEE2A3 /* CardGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2662BAD16E200EEE2A3 /* CardGroupView.swift */; };
 		21D7A26F2BAD16E200EEE2A3 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2672BAD16E200EEE2A3 /* ToDoListView.swift */; };
 		21D7A2702BAD16E200EEE2A3 /* FirstAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2682BAD16E200EEE2A3 /* FirstAppView.swift */; };
 		21D7A2742BAD16ED00EEE2A3 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2722BAD16ED00EEE2A3 /* CardData.swift */; };
-		21D7A2752BAD16ED00EEE2A3 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2732BAD16ED00EEE2A3 /* CardType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,13 +25,10 @@
 		215EAF422BABD8F100ED63D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21D7A2612BAD16E200EEE2A3 /* RecommandView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandView.swift; sourceTree = "<group>"; };
 		21D7A2622BAD16E200EEE2A3 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		21D7A2632BAD16E200EEE2A3 /* TypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		21D7A2652BAD16E200EEE2A3 /* SurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
-		21D7A2662BAD16E200EEE2A3 /* CardGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardGroupView.swift; sourceTree = "<group>"; };
 		21D7A2672BAD16E200EEE2A3 /* ToDoListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		21D7A2682BAD16E200EEE2A3 /* FirstAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAppView.swift; sourceTree = "<group>"; };
 		21D7A2722BAD16ED00EEE2A3 /* CardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
-		21D7A2732BAD16ED00EEE2A3 /* CardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,13 +81,11 @@
 		21D7A2602BAD16E200EEE2A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21D7A2662BAD16E200EEE2A3 /* CardGroupView.swift */,
 				21D7A2622BAD16E200EEE2A3 /* CardView.swift */,
 				21D7A2682BAD16E200EEE2A3 /* FirstAppView.swift */,
 				21D7A2612BAD16E200EEE2A3 /* RecommandView.swift */,
 				21D7A2652BAD16E200EEE2A3 /* SurveyView.swift */,
 				21D7A2672BAD16E200EEE2A3 /* ToDoListView.swift */,
-				21D7A2632BAD16E200EEE2A3 /* TypeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				21D7A2722BAD16ED00EEE2A3 /* CardData.swift */,
-				21D7A2732BAD16ED00EEE2A3 /* CardType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,12 +172,9 @@
 				21D7A26A2BAD16E200EEE2A3 /* CardView.swift in Sources */,
 				21D7A26F2BAD16E200EEE2A3 /* ToDoListView.swift in Sources */,
 				21D7A26D2BAD16E200EEE2A3 /* SurveyView.swift in Sources */,
-				21D7A26E2BAD16E200EEE2A3 /* CardGroupView.swift in Sources */,
 				21D7A2742BAD16ED00EEE2A3 /* CardData.swift in Sources */,
 				21D7A2702BAD16E200EEE2A3 /* FirstAppView.swift in Sources */,
-				21D7A26B2BAD16E200EEE2A3 /* TypeView.swift in Sources */,
 				21D7A2692BAD16E200EEE2A3 /* RecommandView.swift in Sources */,
-				21D7A2752BAD16ED00EEE2A3 /* CardType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
