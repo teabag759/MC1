@@ -31,14 +31,14 @@ struct RecommendView: View {
                 
                 NavigationLink(destination: CardView()) {
                     Text("next")
-                        .font(.title)
-                        .fontWeight(.bold)
+                        .font(.title2)
                         .padding(EdgeInsets(top: CGFloat(vet), leading: CGFloat(hor), bottom: CGFloat(vet), trailing: CGFloat(hor)))
-                        .foregroundColor(.white)
-                        .background(Color.green)
+                        .foregroundColor(.green)
+                        .background(Color.white)
                         .cornerRadius(20)
                     
                 }
+                .padding(.vertical,10)
                 Spacer()
                 
             }

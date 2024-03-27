@@ -31,7 +31,7 @@ struct SurveyView: View {
                     Spacer()
                         .frame(height:30)
                     HStack {
-                    
+                        
                         ForEach(0..<5) { index in
                             Rectangle()
                                 .foregroundColor(.clear)

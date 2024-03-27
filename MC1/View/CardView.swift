@@ -12,7 +12,7 @@ struct CardView: View {
         CardData(imageName: "vol", textContent: "아이들에게 재능 기부하기", type: CardType(name: "싫어요", score: -1)),
         CardData(imageName: "cafe", textContent: "노란색 식탁보를 가진 카페 들어가기", type: CardType(name: "좋아요", score: 1)),
         CardData(imageName: "food", textContent: "여행지에서 처음 만난 사람에게 맛집을 추천받아 가기", type: CardType(name: "싫어요", score: -1)),
-      
+        
     ]
     
     var body: some View {
@@ -22,7 +22,7 @@ struct CardView: View {
                     Image(currentCard.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        
+                    
                     Text(currentCard.textContent)
                         .font(.title)
                         .padding()

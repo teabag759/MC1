@@ -19,14 +19,14 @@ struct FirstAppView: View {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 414, height: 896.34)
-                   
+                
                 Image("ocean")
                     .resizable()
                 
                 VStack{
                     Spacer()
                     Image("first")
-                        
+                    
                     Spacer()
                     Spacer()
                     Spacer()
