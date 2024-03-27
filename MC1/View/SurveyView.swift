@@ -135,30 +135,7 @@ struct SurveyView: View {
     }
 }
 
-struct RatingView: View {
-    @Binding var rating: Int
-    
-    var body: some View {
-        HStack {
-            Spacer()
-            ForEach(1..<6) { number in
-                Button(action: {
-                    self.rating = number
-                }) {
-                    Text("\(number)")
-                        .foregroundColor(number == self.rating ? .blue : .gray)
-                        .font(.system(size: 25))
-                        .padding(5)
-                        .overlay(
-                            Circle()
-                                .stroke(number == self.rating ? Color.blue : Color.gray, lineWidth: 1)
-                        )
-                }.padding(.horizontal,10)
-            }
-            Spacer()
-        }
-    }
-}
+
 
 #Preview {
     

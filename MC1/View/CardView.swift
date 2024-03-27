@@ -22,6 +22,7 @@ struct CardView: View {
                     Image(currentCard.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
                     
                     Text(currentCard.textContent)
                         .font(.title)

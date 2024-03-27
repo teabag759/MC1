@@ -16,6 +16,7 @@
 		21D7A26F2BAD16E200EEE2A3 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2672BAD16E200EEE2A3 /* ToDoListView.swift */; };
 		21D7A2702BAD16E200EEE2A3 /* FirstAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2682BAD16E200EEE2A3 /* FirstAppView.swift */; };
 		21D7A2742BAD16ED00EEE2A3 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D7A2722BAD16ED00EEE2A3 /* CardData.swift */; };
+		21F709312BB3B52900023AB2 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F709302BB3B52900023AB2 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		21D7A2672BAD16E200EEE2A3 /* ToDoListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		21D7A2682BAD16E200EEE2A3 /* FirstAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAppView.swift; sourceTree = "<group>"; };
 		21D7A2722BAD16ED00EEE2A3 /* CardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		21F709302BB3B52900023AB2 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				21D7A2622BAD16E200EEE2A3 /* CardView.swift */,
 				21D7A2682BAD16E200EEE2A3 /* FirstAppView.swift */,
+				21F709302BB3B52900023AB2 /* RatingView.swift */,
 				21D7A2612BAD16E200EEE2A3 /* RecommandView.swift */,
 				21D7A2652BAD16E200EEE2A3 /* SurveyView.swift */,
 				21D7A2672BAD16E200EEE2A3 /* ToDoListView.swift */,
@@ -171,6 +174,7 @@
 				215EAF3C2BABD8F000ED63D4 /* MC1App.swift in Sources */,
 				21D7A26A2BAD16E200EEE2A3 /* CardView.swift in Sources */,
 				21D7A26F2BAD16E200EEE2A3 /* ToDoListView.swift in Sources */,
+				21F709312BB3B52900023AB2 /* RatingView.swift in Sources */,
 				21D7A26D2BAD16E200EEE2A3 /* SurveyView.swift in Sources */,
 				21D7A2742BAD16ED00EEE2A3 /* CardData.swift in Sources */,
 				21D7A2702BAD16E200EEE2A3 /* FirstAppView.swift in Sources */,

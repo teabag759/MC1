@@ -20,7 +20,8 @@ struct RecommendView: View {
                 
                 Text("계획적인 쩝쩝박사")
                     .font(.system(size:30))
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(.bold)
                 Image("type_female")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
