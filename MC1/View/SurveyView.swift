@@ -131,7 +131,7 @@ struct SurveyView: View {
     
     func finishSurvey() {
         isSurveyCompleted = true
-        // 여기에 설문 조사를 마치는 동작을 추가할 수 있습니다.
+
     }
 }
 

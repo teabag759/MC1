@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ToDoListView: View {
-    //    @State private var todolist: [ToDoData] = [
-    //        ToDoData(textContent: "할일 1", isCompleted: false),
-    //        ToDoData(textContent: "할일 2", isCompleted: false),
-    //        ToDoData(textContent: "할일 3", isCompleted: false)
-    //    ]
+
     @Binding var todolist:[ToDoData]
     @State private var completedData: [ToDoData] = [] // 추가: 완료된 할일을 저장할 배열
     
@@ -33,15 +29,6 @@ struct ToDoListView: View {
                     sortTodos()
                     print(todolist)
                 }
-                
-                // 추가: 완료된 할일을 표시할 리스트
-                //                if !completedData.isEmpty {
-                //                    List {
-                //                        ForEach(completedData) { item in
-                //                            Text(item.textContent)
-                //                        }
-                //                    }
-                //                }
                 
                 Spacer()
             }
